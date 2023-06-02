@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quabo</title>
+</head>
+<style>
+body {
+    background-image: url(8iAP1eI.jpg);
+    background-repeat: no-repeat;
+    //background-size: cover;
+    background-color: white;
+    margin: 0px;
+    padding: 0px;
+    width: 1330px;
+    height: 30px;
+}
+  .cylon-eye {
+  background-color: black;
+  background-image: black linear-gradient( to right, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.9) 75%);
+  color: black;
+  height: 100%;
+  width: 20%;
+  animation: 4s linear infinite infinite move-eye;
+}
+div {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+	  h1 {
+      text-align: center;
+      color: #990000;
+      font-size: 24px;
+      margin-top: 0;
+    }
+	input {
+      display: block;
+      margin-bottom: 10px;
+      padding: 8px;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #FF8D29;
+      font-size: 20px;
+    }
+ button:hover {
+      background-color: #E64848;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: center;
+      color: #555;
+    }
+	    button {
+      display: block;
+	   margin-top: 10px;
+	  padding: 10px 20px;
+      border-radius: 30px;
+      border-color: #F15412;
+      background-color: #EA5455;
+      color: #FCFFE7;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+	</style>
+<body>
+  <div>
+  <div class="w3-container w3-hover-red">
+    <h1>Sum of Numbers in Range</h1>
+
+    <input type="number" id="startInput" placeholder="Enter the starting number">
+    <input type="number" id="endInput" placeholder="Enter the ending number">
+
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <button onclick="reset()">Reset</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateSum() {
+      var startInput = document.getElementById('startInput');
+      var endInput = document.getElementById('endInput');
+      var result = document.getElementById('result');
+      var startingNumber = parseInt(startInput.value);
+      var endingNumber = parseInt(endInput.value);
+      var sum = 0;
+      var numbersAdded = "";
+
+      if (startingNumber && endingNumber && startingNumber <= endingNumber) {
+        for (var i = startingNumber; i <= endingNumber; i++) {
+          sum += i;
+          numbersAdded += i + ", ";
+        }
+
+    
+        numbersAdded = numbersAdded.slice(0, -2);
+
+        result.textContent = "Numbers added: " + numbersAdded + "\n";
+        result.textContent += "The sum of all numbers in the range is: " + sum;
+      } else {
+        result.textContent = "Invalid input! Please enter valid numbers.";
+      }
+    }
+
+    function reset() {
+      var startInput = document.getElementById('startInput');
+      var endInput = document.getElementById('endInput');
+      var result = document.getElementById('result');
+      startInput.value = "";
+      endInput.value = "";
+      result.textContent = "";
+    }
+  </script>
+</body>
+</html>
